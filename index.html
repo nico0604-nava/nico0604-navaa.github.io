@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solenta · Paneles solares para tu casa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#07161F;--deep:#0B2A3A;--pine:#0F3D35;--moss:#2E8B62;--mint:#9FE0B8;--mist:#DCEBE4;--sun:#F4E9A8;
+--head:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;--body:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;background:var(--ink);color-scheme:dark;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--ink);color:#EAF4EE;font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.02;letter-spacing:-.025em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;background:var(--mint);color:var(--ink);font:600 16px var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px);background:#fff}
+.btn.ghost{background:transparent;color:#EAF4EE;border:1px solid rgba(220,235,228,.35)}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.ph{background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 14px,rgba(255,255,255,.07) 14px 28px);border:1px dashed rgba(159,224,184,.45);display:grid;place-items:end start;padding:14px;font-size:13px;color:var(--mint);border-radius:18px}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;overflow:hidden;background:linear-gradient(180deg,var(--ink) 0%,var(--deep) 55%,var(--pine) 100%);display:flex;flex-direction:column}
+nav{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:26px 0}
+.logo{display:flex;align-items:center;gap:10px;font:700 22px var(--head);letter-spacing:-.02em;text-decoration:none}
+.logo i{width:22px;height:22px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 5px rgba(244,233,168,.18)}
+nav ul{display:flex;gap:34px;list-style:none;padding:0;font-size:15px}
+nav ul a{text-decoration:none;opacity:.8}nav ul a:hover{opacity:1}
+nav .btn{padding:10px 20px;font-size:15px}
+#sky{position:absolute;left:0;right:0;bottom:0;width:100%;height:78%;z-index:1}
+.hero-in{position:relative;z-index:2;padding:7vh 0 0}
+.hero h1{font-size:clamp(46px,8.4vw,128px);max-width:11ch;font-weight:700}
+.hero p.lead{max-width:46ch;margin:28px 0 34px;font-size:19px;color:#C9DDD3}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.meter{position:absolute;z-index:3;right:max(24px,calc((100vw - 1180px)/2 + 24px));top:30vh;text-align:right}
+.meter small{display:block;font-size:14px;color:#B7CEC3;max-width:20ch;margin-left:auto}
+.meter b{display:block;font:700 clamp(64px,9vw,132px)/1 var(--head);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--sun)}
+.meter span{font-size:12px;color:#8FB0A1}
+
+/* VENTAJAS */
+section{padding:clamp(80px,12vw,160px) 0}
+.sec-h{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.sec-h h2{font-size:clamp(38px,5.6vw,80px)}
+.sec-h p{color:#A9C4B8;max-width:44ch}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{border-radius:10px;padding:30px;background:var(--deep);border:1px solid rgba(159,224,184,.12);display:flex;flex-direction:column;gap:12px;transition:border-color .3s}
+.card:hover{border-color:rgba(159,224,184,.5)}
+.card h3{font-size:clamp(24px,2.4vw,32px)}
+.card p{color:#A9C4B8;font-size:16px}
+.big{grid-column:span 4;grid-row:span 2;border-radius:30px;background:linear-gradient(160deg,var(--pine),var(--deep));padding:38px;justify-content:space-between}
+.big h3{font-size:clamp(34px,4.6vw,64px);max-width:12ch}
+.big .ph{min-height:260px;flex:1}
+.s2{grid-column:span 2;background:var(--mist);color:var(--ink);border-radius:60px 10px 10px 10px}
+.s2 p{color:#2c4a40}
+.s3{grid-column:span 2}.s4{grid-column:span 3}.s5{grid-column:span 3;background:var(--pine)}
+.card .k{font:700 44px/1 var(--head);letter-spacing:-.03em;color:var(--moss)}
+.s3 .k,.s4 .k,.s5 .k{color:var(--mint)}
+
+/* SIMULADOR */
+.sim{background:linear-gradient(120deg,var(--pine),var(--moss) 160%);border-radius:36px;padding:clamp(32px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:16px}
+.sim h2{font-size:clamp(32px,4.4vw,60px)}
+.sim label{display:block;margin:30px 0 8px;font-size:15px;color:#CFE6DB}
+.sim output{font:700 40px var(--head)}
+input[type=range]{width:100%;accent-color:var(--sun);height:6px}
+.res{display:grid;gap:22px}
+.res div{border-top:1px solid rgba(255,255,255,.25);padding-top:14px}
+.res b{display:block;font:700 clamp(44px,6vw,84px)/1 var(--head);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.res span,.sim small{font-size:14px;color:#D4EBDF}
+
+/* TESTIMONIOS */
+.testi{background:var(--deep)}
+.t-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:center}
+blockquote{font:500 clamp(26px,3.6vw,48px)/1.15 var(--head);letter-spacing:-.02em;transition:opacity .35s;min-height:7.2em}
+.who{margin-top:28px;color:#A9C4B8;font-size:15px;transition:opacity .35s}
+.who b{color:#fff;font-weight:600}
+.tabs{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap}
+.tabs button{background:none;border:1px solid rgba(159,224,184,.3);color:#CFE6DB;padding:10px 18px;border-radius:999px;font:500 15px var(--body);cursor:pointer;transition:.25s}
+.tabs button[aria-selected=true]{background:var(--mint);color:var(--ink);border-color:var(--mint)}
+.t-grid .ph{aspect-ratio:4/5;border-radius:200px 200px 18px 18px}
+
+/* CONTACTO */
+.c-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px}
+.c-grid h2{font-size:clamp(40px,6vw,88px)}
+.c-grid .info{margin-top:32px;display:grid;gap:6px;color:#A9C4B8}
+.c-grid .info b{color:#fff;font-weight:500}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:var(--deep);padding:clamp(24px,4vw,44px);border-radius:28px;border:1px solid rgba(159,224,184,.15)}
+form label{display:grid;gap:6px;font-size:14px;color:#B7CEC3}
+form .full{grid-column:1/-1}
+input,select{background:var(--ink);border:1px solid rgba(159,224,184,.22);border-radius:10px;padding:14px;color:#fff;font:400 16px var(--body)}
+input:focus,select:focus{outline:2px solid var(--mint);border-color:transparent}
+.ok{display:none;grid-column:1/-1;padding:18px;border-radius:12px;background:rgba(159,224,184,.12);color:var(--mint)}
+.ok.on{display:block}
+footer{border-top:1px solid rgba(159,224,184,.12);padding:36px 0;color:#7F9C8F;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media(max-width:860px){
+nav ul{display:none}
+.meter{position:relative;top:auto;right:auto;text-align:left;padding:24px 24px 0}.meter small{margin:0}
+.hero-in{padding-top:3vh}
+#sky{height:55%}
+.sec-h,.sim,.t-grid,.c-grid{grid-template-columns:1fr;gap:32px}
+.bento>*{grid-column:1/-1!important;grid-row:auto!important}
+.t-grid .ph{aspect-ratio:1}
+form{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="wrap" style="width:100%">
+    <nav>
+      <a class="logo" href="#top"><i></i>Solenta</a>
+      <ul><li><a href="#ventajas">Ventajas</a></li><li><a href="#simulador">Tu ahorro</a></li><li><a href="#clientes">Clientes</a></li></ul>
+      <a class="btn" href="#contacto">Estudio gratis</a>
+    </nav>
+    <div class="hero-in">
+      <h1>Tu tejado trabaja. Tu factura baja.</h1>
+      <p class="lead">Diseñamos e instalamos paneles solares a medida para viviendas unifamiliares. Produces tu propia energía y dejas de depender de cada subida de la luz.</p>
+      <div class="cta"><a class="btn" href="#contacto">Pedir estudio gratuito</a><a class="btn ghost" href="#simulador">Calcular mi ahorro</a></div>
+    </div>
+  </div>
+  <div class="meter" aria-live="off"><small>Factura de luz del mes de un cliente con 5,4 kWp</small><b id="bill">142 €</b><span>Dato de ejemplo, sustituir por caso real</span></div>
+
+  <svg id="sky" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs><radialGradient id="g1"><stop offset="0" stop-color="#F4E9A8" stop-opacity=".38"/><stop offset=".5" stop-color="#9FE0B8" stop-opacity=".09"/><stop offset="1" stop-color="#9FE0B8" stop-opacity="0"/></radialGradient></defs>
+    <path d="M0 560 Q600 -80 1200 560" fill="none" stroke="rgba(220,235,228,.22)" stroke-dasharray="2 9" stroke-linecap="round"/>
+    <circle id="glow" r="420" fill="url(#g1)"/>
+    <circle id="sun" r="26" fill="#F4E9A8"/>
+    <path d="M0 600V556Q300 512 600 546T1200 534V600Z" fill="#0A2B26"/>
+    <rect x="440" y="470" width="320" height="100" fill="#0B2F2A"/>
+    <polygon points="410,472 600,380 790,472" fill="#13463E"/>
+    <g id="pn"></g>
+    <rect x="500" y="500" width="34" height="34" rx="2" fill="#F4E9A8" id="win" opacity=".1"/>
+    <rect x="660" y="500" width="34" height="34" rx="2" fill="#F4E9A8" opacity=".1" class="w2"/>
+  </svg>
+</header>
+
+<main>
+<section id="ventajas">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>Menos luz que pagar. Más casa que disfrutar.</h2>
+      <p>Cada instalación se calcula con tu consumo, la orientación de tu tejado y tus horarios. Esto es lo que cambia cuando generas tu propia energía.</p>
+    </div>
+    <div class="bento">
+      <article class="card big">
+        <h3>Hasta un 70 % menos en la factura</h3>
+        <p>Consumes lo que produces durante el día y vuelcas el sobrante a la red. Cifra orientativa: la fijaremos con datos de tu consumo real.</p>
+        <div class="ph">Imagen: vivienda unifamiliar con paneles al atardecer · 1600×1000</div>
+      </article>
+      <article class="card s2"><span class="k">25 años</span><h3>Garantía de producción</h3><p>Paneles con garantía de rendimiento y revisiones incluidas.</p></article>
+      <article class="card s3"><span class="k">5–7 años</span><h3>Se paga sola</h3><p>Una inversión que se amortiza con lo que dejas de pagar.</p></article>
+      <article class="card s4"><h3>Ayudas e incentivos al día</h3><p>Nos ocupamos de la tramitación de subvenciones, deducciones fiscales y la legalización de la instalación.</p></article>
+      <article class="card s5"><h3>Tu casa vale más</h3><p>Una vivienda con certificación energética alta se vende y se alquila mejor.</p></article>
+    </div>
+
+    <div class="sim" id="simulador">
+      <div>
+        <h2>¿Cuánto podrías ahorrar?</h2>
+        <label for="bill-in">Tu factura mensual de luz <output id="bill-out">120 €</output></label>
+        <input id="bill-in" type="range" min="40" max="300" step="5" value="120">
+        <small>Estimación orientativa con un autoconsumo medio del 68 %. El estudio gratuito afina el cálculo.</small>
+      </div>
+      <div class="res">
+        <div><b id="r-m">0 €</b><span>menos cada mes</span></div>
+        <div><b id="r-y">0 €</b><span>menos cada año</span></div>
+        <div><b id="r-25">0 €</b><span>en 25 años, sin contar subidas de precio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi" id="clientes">
+  <div class="wrap">
+    <div class="sec-h"><h2>Lo cuentan quienes ya producen su luz</h2><p>Testimonios de ejemplo. Los sustituiremos por opiniones reales de clientes.</p></div>
+    <div class="t-grid">
+      <div>
+        <blockquote id="t-q">“Pasamos de 190 € al mes a menos de 60. Lo mejor: no tuvimos que ocuparnos de ningún papel.”</blockquote>
+        <p class="who" id="t-w"><b>Marta R.</b> · Adosado, instalación de 5,4 kWp</p>
+        <div class="tabs" role="tablist" aria-label="Testimonios">
+          <button role="tab" aria-selected="true" data-i="0">Marta</button>
+          <button role="tab" aria-selected="false" data-i="1">Javier</button>
+          <button role="tab" aria-selected="false" data-i="2">Lucía y Pablo</button>
+        </div>
+      </div>
+      <div class="ph">Imagen: retrato del cliente delante de su casa · 800×1000</div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap c-grid">
+    <div>
+      <h2>Empieza por tu tejado.</h2>
+      <p style="margin-top:22px;max-width:38ch;color:#A9C4B8">Cuéntanos dónde vives y cuánto pagas. Te devolvemos una propuesta con potencia, coste y ahorro estimado, sin compromiso.</p>
+      <div class="info"><span><b>Teléfono</b> · 000 000 000</span><span><b>Email</b> · hola@solenta.example</span><span><b>Horario</b> · Lunes a viernes, 9:00–19:00</span></div>
+    </div>
+    <form id="f">
+      <label>Nombre<input name="n" required autocomplete="name"></label>
+      <label>Teléfono<input name="t" type="tel" required autocomplete="tel"></label>
+      <label>Código postal<input name="c" inputmode="numeric" required autocomplete="postal-code"></label>
+      <label>Factura mensual (€)<input id="f-bill" name="b" type="number" min="0" value="120"></label>
+      <label class="full">Tipo de tejado<select name="r"><option>Teja inclinada</option><option>Cubierta plana</option><option>No lo sé todavía</option></select></label>
+      <button class="btn full" type="submit" style="justify-content:center">Pedir estudio gratuito</button>
+      <p class="ok" id="ok" role="status">Solicitud recibida. Te llamaremos en menos de 24 horas laborables para concretar la visita.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Solenta. Todos los derechos reservados.</span><span>Aviso legal · Privacidad · Cookies</span></div></footer>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var sun=$('sun'),glow=$('glow'),pn=$('pn'),bill=$('bill'),win=$('win'),w2=document.querySelector('.w2');
+/* paneles sobre el tejado */
+var ns='http://www.w3.org/2000/svg',quads=[];
+for(var i=0;i<5;i++){
+  var s1=.1+i*.14,s2=s1+.12;
+  function P(s,dy){return (600+190*s)+','+(380+92*s+dy)}
+  var q=document.createElementNS(ns,'polygon');
+  q.setAttribute('points',[P(s1,10),P(s2,10),P(s2,40),P(s1,40)].join(' '));
+  q.setAttribute('stroke','#9FE0B8');q.setAttribute('stroke-width','1.2');
+  pn.appendChild(q);quads.push(q);
+}
+function pos(t){var u=1-t;return{x:1200*t,y:560*u*u-160*u*t+560*t*t}}
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var t0=null,D=2800,e=reduce?1:0,sf=0;
+function ease(x){return 1-Math.pow(1-x,3)}
+function draw(){
+  var t=.04+.54*e+sf*.3,p=pos(Math.min(t,.97));
+  sun.setAttribute('cx',p.x);sun.setAttribute('cy',p.y);
+  glow.setAttribute('cx',p.x);glow.setAttribute('cy',p.y);
+  quads.forEach(function(q,i){var k=Math.max(0,Math.min(1,e*1.4-i*.1));q.setAttribute('fill','rgba(159,224,184,'+(.1+.6*k)+')')});
+  win.setAttribute('opacity',.1+.8*e);w2.setAttribute('opacity',.1+.8*e);
+  bill.textContent=Math.round(142-104*e)+' €';
+}
+function tick(ts){
+  if(t0===null)t0=ts;
+  e=ease(Math.min(1,(ts-t0)/D));draw();
+  if(e<1)requestAnimationFrame(tick);
+}
+if(reduce){draw()}else{draw();requestAnimationFrame(tick)}
+addEventListener('scroll',function(){sf=Math.min(1,scrollY/innerHeight);draw()},{passive:true});
+
+/* simulador */
+var inp=$('bill-in'),fb=$('f-bill');
+function fmt(n){return Math.round(n).toLocaleString('es-ES')+' €'}
+function sim(){
+  var v=+inp.value,m=v*.68;
+  $('bill-out').textContent=v+' €';
+  $('r-m').textContent=fmt(m);$('r-y').textContent=fmt(m*12);$('r-25').textContent=fmt(m*300);
+  fb.value=v;
+}
+inp.addEventListener('input',sim);sim();
+
+/* testimonios */
+var T=[
+ ['“Pasamos de 190 € al mes a menos de 60. Lo mejor: no tuvimos que ocuparnos de ningún papel.”','<b>Marta R.</b> · Adosado, instalación de 5,4 kWp'],
+ ['“Llevaba años viendo subir la factura. Ahora mi coche eléctrico se carga con lo que produce el tejado.”','<b>Javier M.</b> · Chalet, instalación de 7,2 kWp con batería'],
+ ['“Vinieron, midieron, explicaron todo sin prisas y en dos días estaba montado. Se nota el oficio.”','<b>Lucía y Pablo</b> · Vivienda unifamiliar, 4,9 kWp']
+];
+var q=$('t-q'),w=$('t-w'),tabs=document.querySelectorAll('.tabs button');
+tabs.forEach(function(b){b.addEventListener('click',function(){
+  tabs.forEach(function(x){x.setAttribute('aria-selected',x===b)});
+  q.style.opacity=w.style.opacity=0;
+  setTimeout(function(){var d=T[+b.dataset.i];q.textContent=d[0];w.innerHTML=d[1];q.style.opacity=w.style.opacity=1},300);
+})});
+
+/* formulario */
+$('f').addEventListener('submit',function(ev){ev.preventDefault();$('ok').classList.add('on')});
+})();
+</script>
+</body>
+</html>
